@@ -1,4 +1,5 @@
 from django.db import models
+from django.http import JsonResponse
 
 from modelcluster.fields import ParentalKey
 
@@ -42,3 +43,15 @@ class PhotoPageGalleryImage(Orderable):
         ImageChooserPanel('image'),
         FieldPanel('caption'),
     ]
+
+
+# class PhotoDetailPage(Page):
+
+#     def serve(self, request):
+#         return JsonResponse({
+#             'title': self.title,
+#             'body': self.body,
+#             'date': self.date,
+#             # Resizes the image to 300px width and gets a URL to it
+#             'feed_image': self.feed_image.get_rendition('width-300').url,
+#         })
