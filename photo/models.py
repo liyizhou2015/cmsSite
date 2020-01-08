@@ -9,6 +9,8 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
 # Create your models here.
 
+# =========================================================wagtail admin==========
+
 
 class PhotoIndexPage(Page):
     def get_context(self, request):
@@ -44,7 +46,7 @@ class PhotoPageGalleryImage(Orderable):
         FieldPanel('caption'),
     ]
 
-
+# ======================================================viewpage==============
 # class PhotoDetailPage(Page):
 
 #     def serve(self, request):
