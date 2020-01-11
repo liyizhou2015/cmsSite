@@ -13,7 +13,10 @@ class Photo(models.Model):
     # file_type = models.CharField(max_length=32)
     # file_size = models.IntegerField()
     # created_at = models.DateTimeField(default=datetime.now)
-    pic = models.ImageField(upload_to='booktest')
+    pic_height = models.PositiveIntegerField(default=75)
+    pic_width = models.PositiveIntegerField(default=75)
+    pic = models.ImageField(upload_to='booktest',
+                            height_field='pic_height', width_field='pic_width')
 
     # 我们还定义了通过文件md5值获取模型对象的类方法
     # @classmethod

@@ -26,7 +26,9 @@ urlpatterns = [
     path('photo_upload/', photo_upload),
     path('photo_show/', photo_show),
     path('admin/', admin.site.urls),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+#  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     urlpatterns += [

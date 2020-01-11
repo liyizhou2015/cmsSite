@@ -1,4 +1,7 @@
 
 {% for photo in photos%}
     <img src="/media/{{photo.pic}}"/>
+    <p>
+        <span>{{photo.pic_height}} x {{photo.pic_width}}</span>
+    </p>
 {% endfor %}
