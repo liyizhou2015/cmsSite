@@ -1,7 +1,6 @@
-
 {% for photo in photos%}
-    <img src="/media/{{photo.pic}}"/>
-    <p>
-        <span>{{photo.pic_height}} x {{photo.pic_width}}</span>
-    </p>
+<img src="/media/{{photo.pic}}" style="height:100px;weight:100px;" />
+<p>
+    <span>{{photo.pic_height}} x {{photo.pic_width}}</span>
+</p>
 {% endfor %}

@@ -24,7 +24,8 @@ from photo.views import photo_upload, photo_handle, photo_show
 urlpatterns = [
     path('photo_handle/', photo_handle),
     path('photo_upload/', photo_upload),
-    path('photo_show/', photo_show),
+    # path('photo_show/', photo_show),
+    path('', photo_show),
     path('admin/', admin.site.urls),
 ]
 
