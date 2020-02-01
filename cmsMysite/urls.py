@@ -19,11 +19,12 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.views.static import serve
 
-from account.views import login, logout, index
+from account.views import login, logout, index, userRegister
 from photo.views import photo_upload, photo_handle, photo_show
 
 urlpatterns = [
     path('account/login', login),
+    path('account/register', userRegister),
     path('account/logout', logout),
     path('account/index', index),
     path('photo_handle/', photo_handle),

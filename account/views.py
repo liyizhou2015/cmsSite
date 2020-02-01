@@ -1,6 +1,8 @@
-from django.contrib import auth
+
 from django.shortcuts import render, HttpResponse, redirect
+from django.contrib import auth
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 
 
 def login(request):
@@ -17,6 +19,25 @@ def login(request):
             return redirect('/account/index')
 
     return render(request, 'account/login.html')
+
+
+def userRegister(request):
+    """
+    注册视图
+    """
+    if request.method == 'POST':
+        username = request.POST.get('user')
+        password = request.POST.get('pwd')
+        try:
+            user = User.objects.create_user(
+                username, None, password)
+            res = user.save()
+            username = user
+            return render(request, 'account/index.html', locals())
+        except:
+            return render(request, 'account/register.html')
+    else:
+        return render(request, 'account/register.html')
 
 
 def logout(request):
