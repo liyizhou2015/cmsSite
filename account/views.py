@@ -3,6 +3,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.contrib import auth
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 
 def login(request):
@@ -17,8 +18,8 @@ def login(request):
         if user is not None:
             auth.login(request, user)
             return redirect('/account/index')
-
-    return render(request, 'account/login.html')
+    else:
+        return render(request, 'account/login.html')
 
 
 def userRegister(request):

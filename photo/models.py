@@ -3,7 +3,7 @@ from datetime import datetime
 from django.db import models
 from django.conf import settings
 
-# Create your models here.
+from django.contrib.auth.models import User
 
 
 class Photo(models.Model):
@@ -17,7 +17,8 @@ class Photo(models.Model):
     pic_width = models.PositiveIntegerField(default=75)
     pic = models.ImageField(upload_to='booktest',
                             height_field='pic_height', width_field='pic_width')
-
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE)
     # 我们还定义了通过文件md5值获取模型对象的类方法
     # @classmethod
     # def getImageByMd5(cls, md5):

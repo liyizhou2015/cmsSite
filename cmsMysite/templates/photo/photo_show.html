@@ -1,6 +1,13 @@
-{% for photo in photos%}
-<img src="/media/{{photo.pic}}" style="height:100px;weight:100px;" />
-<p>
-    <span>{{photo.pic_height}} x {{photo.pic_width}}</span>
-</p>
-{% endfor %}
+{% if photos %}
+    {% for photo in photos%}
+
+    <a href="#">
+        <img src="/media/{{photo.pic}}" style="height:100px;weight:100px;" />
+    </a>
+    <p>
+        <span>{{photo.pic_height}} x {{photo.pic_width}}</span>
+    </p>
+    {% endfor %}
+{% else %}
+    you have no photo
+{% endif %}
