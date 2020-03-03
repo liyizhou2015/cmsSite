@@ -22,7 +22,16 @@ from django.views.static import serve
 from account.views import login, logout, index, userRegister
 from photo.views import photo_upload, photo_handle, photo_show
 
+# djangorestframwork test
+from rest_framework import routers
+from quickstart import views
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
+
+
 urlpatterns = [
+
     path('account/login', login),
     path('account/register', userRegister),
     path('account/logout', logout),
@@ -30,9 +39,14 @@ urlpatterns = [
     path('photo_handle/', photo_handle),
     path('photo_upload/', photo_upload),
     # path('photo_show/', photo_show),
-    path('', photo_show),
+    # path('', photo_show),
 
     path('admin/', admin.site.urls),
+
+
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 #  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

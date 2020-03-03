@@ -13,7 +13,6 @@ def photo_upload(request):
 
 
 def photo_handle(request):
-
     userFolder = "img/" + str(request.user.id) + "-" + \
         str(request.user.username)
     ffolder = '{}/{}'.format(settings.MEDIA_ROOT,
