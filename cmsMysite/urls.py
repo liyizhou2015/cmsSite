@@ -38,14 +38,14 @@ urlpatterns = [
     path('account/index', index),
     path('photo_handle/', photo_handle),
     path('photo_upload/', photo_upload),
-    # path('photo_show/', photo_show),
-    # path('', photo_show),
+    path('photo_show/', photo_show),
+    path('', photo_show),
 
     path('admin/', admin.site.urls),
 
 
-    path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    # path('', include(router.urls)),
+    # path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
